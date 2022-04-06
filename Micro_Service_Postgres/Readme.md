@@ -24,9 +24,9 @@ This is a small project which makes use of two services.
 | SL 	| Endpoint                                    	| Request Type  | Data Format in Request Body                                                    |
 |----	|---------------------------------------------	|--------------	|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | 1  	| localhost:8082/user/{userid}                         	| GET         	| ```--------X--------``` | 
-| 2  	| localhost:8082/user                         	| GET          	| ```--------X--------``` |
+| 2  	| localhost:8082/user/                         	| GET          	| ```--------X--------``` |
 | 3  	| localhost:8081/contact/user/{userid}                         	| GET         	| ```--------X--------``` |
-| 4  	| localhost:8082/user 	| POST          	| ``` {"cId" : {contact_id},   "email" : "{user_email}",    "contactName" : "{contact_name}",   "userId" : {user_id}} ``` |
+| 4  	| localhost:8082/user/ 	| POST          	| ``` {"cId" : {contact_id},   "email" : "{user_email}",    "contactName" : "{contact_name}",   "userId" : {user_id}} ``` |
 | 5  	| localhost:8081/contact/user/{userid} 	| POST          	| ``` {"userId":{user_id},  "name": "{user_name}",  "phone": "{user_phone_number}"} ``` |
 
 

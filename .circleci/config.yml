@@ -1,36 +1,47 @@
 version: 2.1
 jobs:   
-  build-package-contact_service:
+  build-package:
     docker:
       - image: cimg/openjdk:11.0
+    working_directory: ~/Micro_Service_Postgres
     steps:
       - checkout
       - run:
-          name: Build
+          name: Build Contact Service
           command: |
             cd Micro_Service_Postgres/contact_service; 
             mvn clean package;
             ls;
             ls -R | grep .jar;
             pwd;
-  build-package-user_service:
-    docker:
-      - image: cimg/openjdk:11.0
-    steps:
-      - checkout
       - run:
-          name: Build
+          name: Build User Service
           command: |
             cd Micro_Service_Postgres/user_service; 
             mvn clean package;  
             ls;
             ls -R | grep .jar;
-            pwd;        
-                 
+            pwd;          
+      # package into a jar
+      - run: mvn clean package   
+
+     
+
+  test-job: # this is to run devops test commands like ls pwd or same type  
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+        - run:
+            command: |
+              pwd;
+              ls;
+
+
 
 
 workflows:
   lincker: 
     jobs:
-      - build-package-contact_service
-      - build-package-user_service
+      - build-package
+      - build-package
+      - test-job

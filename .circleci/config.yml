@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Build Contact Service
           command: |
-            cd Micro_Service_Postgres/contact_service; 
+            cd contact_service; 
             mvn clean package;
             ls;
             ls -R | grep .jar;
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build User Service
           command: |
-            cd Micro_Service_Postgres/user_service; 
+            cd user_service; 
             mvn clean package;  
             ls;
             ls -R | grep .jar;

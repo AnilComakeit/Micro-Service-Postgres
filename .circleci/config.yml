@@ -59,4 +59,7 @@ workflows:
     jobs:
       - build-package
       - build-package
+      - terraform # terraform validate, plan, init, apply, destroy
+      - ansible # in this we will run ansible playbooks
       - test-job
+      

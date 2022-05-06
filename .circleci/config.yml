@@ -45,6 +45,8 @@ jobs:
             command: |
               pwd;
               ls;
+              sudo service docker start;
+              sudo service docker status;
 
 workflows:
   lincker: 

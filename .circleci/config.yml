@@ -11,7 +11,7 @@ jobs:
             cd Micro_Service_Postgres/contact_service; 
             mvn clean package;
             ls;
-            ls -R;
+            ls -R | grep .jar;
             pwd;
   build-package-user_service:
     docker:
@@ -24,7 +24,7 @@ jobs:
             cd Micro_Service_Postgres/user_service; 
             mvn clean package;  
             ls;
-            ls -R;
+            ls -R | grep .jar;
             pwd;        
                  
 

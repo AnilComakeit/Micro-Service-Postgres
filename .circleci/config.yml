@@ -18,6 +18,7 @@ jobs:
             mvn clean package;
             pwd;
             ls -R;
+            docker login -u "anil76201" -p "Reddy@0108"
             docker build -t anil76201/contactimage .
             docker push anil76201/contactimage
           working_directory: .
@@ -28,6 +29,7 @@ jobs:
             mvn clean package;
             pwd
             ls -R;
+            docker login -u "anil76201" -p "Reddy@0108"            
             docker build -t anil76201/userimage .
             docker push anil76201/userimage
           working_directory: .

@@ -21,7 +21,12 @@ jobs:
             mvn clean package;  
             ls;
             ls -R | grep .jar;
-            pwd;          
+            pwd;
+      - run:
+          name: Docker Login
+          command: |
+          command: docker login -u anil76201 -p Anil@0108
+          
  
 
      

@@ -8,24 +8,24 @@ jobs:
           password: Reddy@0108
     # working_directory: ~/Micro_Service_Postgres
     steps:
-      - setup_remote_docker:
-          version: 20.10.12      
       - checkout
       - run:
           name: Build Contact Service
           command: |
-            ls
-            cd Micro_Service_Postgres/contact_service; 
+            cd contact_service; 
             mvn clean package;
-            docker build -t anil76201/contactimage .
+            pwd;
+            ls -R;
+            # sudo docker build -t anil76201/contactimage .
           working_directory: .
       - run:
           name: Build User Service
           command: |
-            ls
-            cd Micro_Service_Postgres/user_service; 
+            cd user_service; 
             mvn clean package;
-            docker build -t anil76201/userimage .
+            pwd
+            ls -R;
+            # sudo docker build -t anil76201/userimage .
           working_directory: .
       - restore_cache:
           key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
@@ -34,10 +34,10 @@ jobs:
             - ~/.m2/repository
           key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
       - store_artifacts:
-          path: ./user_service/target/*.jar
+          path: ./user_service/target/user_service-0.0.1-SNAPSHOT.jar
           destination: ./user_service.jar
       - store_artifacts:
-          path: ./contact_service/target/*.jar
+          path: ./contact_service/target/contact_service-0.0.1-SNAPSHOT.jar
           destination: ./contact_service.jar
   test-job: # this is to run devops test commands like ls pwd or same type  
     docker:
@@ -47,8 +47,6 @@ jobs:
             command: |
               pwd;
               ls;
-               
-
 
 workflows:
   lincker: 
@@ -56,5 +54,3 @@ workflows:
       - build-package
       - build-package
       - test-job
-
-

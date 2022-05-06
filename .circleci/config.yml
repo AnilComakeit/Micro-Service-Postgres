@@ -9,6 +9,8 @@ jobs:
     # working_directory: ~/Micro_Service_Postgres
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.12
       - run:
           name: Build Contact Service
           command: |

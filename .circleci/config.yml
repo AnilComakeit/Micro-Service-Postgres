@@ -22,8 +22,7 @@ jobs:
             ls;
             ls -R | grep .jar;
             pwd;          
-      # package into a jar
-      - run: mvn clean package   
+ 
 
      
 

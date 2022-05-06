@@ -1,6 +1,6 @@
 version: 2.1
 jobs:   
-  build-package:
+  build-package-contact_service:
     docker:
       - image: cimg/openjdk:11.0
     steps:
@@ -9,16 +9,26 @@ jobs:
           name: Build
           command: |
             cd Micro_Service_Postgres/contact_service; 
-            mvn clean package;          
-      - store_artifacts:
-          path: contact_service/target/*.jar
-          destination: artifact-file
-
- 
+            mvn clean package;
+            ls;
+            pwd;
+  build-package-user_service:
+    docker:
+      - image: cimg/openjdk:11.0
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: |
+            cd Micro_Service_Postgres/user_service; 
+            mvn clean package;  
+            ls;
+            pwd;        
                  
 
 
 workflows:
   lincker: 
     jobs:
-      - build-package
+      - build-package-contact_service
+      - build-package-user_service

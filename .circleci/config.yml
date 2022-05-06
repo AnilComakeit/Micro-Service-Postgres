@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Build
-          command:
+          command: |
             cd contact_service 
             mvn clean package           
       - run:

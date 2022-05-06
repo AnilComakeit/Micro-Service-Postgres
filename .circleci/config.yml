@@ -7,9 +7,10 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: ls
-            # cd contact_service 
-            # mvn clean package           
+          command: |
+            cd Micro_Service_Postgres/contact_service 
+            ls
+            mvn clean package           
       # - run:
       #     name: Test
       #     command: mvn test

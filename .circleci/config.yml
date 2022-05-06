@@ -25,11 +25,7 @@ jobs:
       - run:
           name: Docker Login
           command: |
-          command: docker login -u anil76201 -p Anil@0108
-          
- 
-
-     
+            docker login -u anil76201 -p Reddy@0108       
 
   test-job: # this is to run devops test commands like ls pwd or same type  
     docker:

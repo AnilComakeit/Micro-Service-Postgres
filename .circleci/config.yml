@@ -3,13 +3,13 @@ jobs:
   build-package:
     docker:
       - image: cimg/openjdk:11.0
-    working_directory: ~/Micro_Service_Postgres
+    # working_directory: ~/Micro_Service_Postgres
     steps:
       - checkout
       - run:
           name: Build Contact Service
           command: |
-            cd contact_service; 
+            cd Micro_Service_Postgres/contact_service; 
             mvn clean package;
             ls;
             ls -R | grep .jar;
@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build User Service
           command: |
-            cd user_service; 
+            cd Micro_Service_Postgres/user_service; 
             mvn clean package;  
             ls;
             ls -R | grep .jar;

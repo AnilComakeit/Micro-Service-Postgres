@@ -47,7 +47,7 @@ jobs:
             command: |
               pwd;
               ls;
-              sudo groupadd docker;
+               
 
 
 workflows:

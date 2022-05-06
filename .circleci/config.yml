@@ -10,9 +10,9 @@ jobs:
           command: ls
             # cd contact_service 
             # mvn clean package           
-      - run:
-          name: Test
-          command: mvn test
+      # - run:
+      #     name: Test
+      #     command: mvn test
 
 
 workflows:

@@ -33,12 +33,12 @@ jobs:
             docker build -t anil76201/userimage .
             docker push anil76201/userimage
           working_directory: .
-      - restore_cache:
-          key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
-      - save_cache:
-          paths:
-            - ~/.m2/repository
-          key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
+      # - restore_cache:
+      #     key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
+      # - save_cache:
+      #     paths:
+      #       - ~/.m2/repository
+      #     key: circleci-java-maven-{{ checksum "/tmp/maven_cache_seed" }}
       - store_artifacts:
           path: ./Micro_Service_Postgres/user_service/target/user_service-0.0.1-SNAPSHOT.jar
           destination: ./user_service.jar

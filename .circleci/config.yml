@@ -11,6 +11,7 @@ jobs:
           command: |
             cd Micro_Service_Postgres/contact_service; 
             mvn clean package;
+            docker build -t anil76201/contactimage ./Micro_Service_Postgres/contact_service
             ls;
             ls -R | grep .jar;
             pwd;
@@ -18,7 +19,8 @@ jobs:
           name: Build User Service
           command: |
             cd Micro_Service_Postgres/user_service; 
-            mvn clean package;  
+            mvn clean package;
+            docker build -t anil76201/userimage ./Micro_Service_Postgres/user_service  
             ls;
             ls -R | grep .jar;
             pwd;

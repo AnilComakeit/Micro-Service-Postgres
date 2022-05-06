@@ -8,6 +8,8 @@ jobs:
           password: Reddy@0108
     # working_directory: ~/Micro_Service_Postgres
     steps:
+      - setup_remote_docker:
+          version: 20.10.12      
       - checkout
       - run:
           name: Build Contact Service
@@ -45,8 +47,8 @@ jobs:
             command: |
               pwd;
               ls;
-              sudo service docker start;
-              sudo service docker status;
+              sudo groupadd docker;
+
 
 workflows:
   lincker: 

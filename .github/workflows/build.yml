@@ -22,17 +22,17 @@ jobs:
          java-version: '17'
          
 
-      - name: Setup Maven Action
-        uses: s4u/setup-maven-action@v1.2.1
-        with:
-          java-version: 8
+#       - name: Setup Maven Action
+#         uses: s4u/setup-maven-action@v1.2.1
+#         with:
+#           java-version: 8
 
-#       - name: Testing 
-#       - uses: actions/checkout@v1
-#       - run: |
-#          - ls
-#          - echo "current directory is"
-#          - pwd
+# #       - name: Testing 
+# #       - uses: actions/checkout@v1
+# #       - run: |
+# #          - ls
+# #          - echo "current directory is"
+# #          - pwd
 
-      - name: Build with Maven
-        run: mvn verify
+#       - name: Build with Maven
+#         run: mvn verify

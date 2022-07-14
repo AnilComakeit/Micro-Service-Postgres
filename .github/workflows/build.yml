@@ -31,13 +31,11 @@ jobs:
           ls
           sh Jars.sh
           echo "Done Anil"
-  build: 
-    name: Build
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout Folder
-        run: ls
+          docker-compose build
+          echo "build done"
+          docker images 
+          
+        
 
 
 

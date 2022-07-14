@@ -29,6 +29,8 @@ jobs:
           ls
           cd Micro_Service_Postgres/
           ls
+          sh Jars.sh
+          echo "Done Anil"
   build: 
     name: Build
     runs-on: ubuntu-latest

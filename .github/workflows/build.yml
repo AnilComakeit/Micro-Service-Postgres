@@ -28,7 +28,8 @@ jobs:
           java-version: 8
 
       - name: Testing 
-        run: |
+      - uses: actions/checkout@v1
+      - run: |
          - ls
          - echo "current directory is"
          - pwd

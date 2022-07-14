@@ -12,8 +12,8 @@ on:
 jobs:
 
   test:
-    name: Unit Test 2
-    runs-on: ubuntu-18.04
+    name: Unit Test 
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1

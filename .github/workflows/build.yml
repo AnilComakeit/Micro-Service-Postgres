@@ -22,8 +22,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-      - name: started maven
-      - run: echo "started maven anil"
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 

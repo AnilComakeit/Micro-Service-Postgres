@@ -25,9 +25,11 @@ jobs:
       - name: Build with Maven
         run: mvn --version
       - name: current folder
-        run: |
-          - cd Micro_Service_Postgres
-          -  ls
+        run: ls
+      - name: change directory
+        run: cd Micro_Service_Postgres
+      - name: after changing
+        run: ls
   build: 
     name: Build
     runs-on: ubuntu-latest

@@ -31,7 +31,6 @@ jobs:
           ls
           sh Jars.sh
           echo "Done Anil"
-        
           echo "Deploying images to docker hub"
           docker login -u "anil76201" -p "Reddy@0108"
 
@@ -49,6 +48,36 @@ jobs:
           docker push anil76201/contactimage
           echo "Contact image pushed !!!!!"
           echo "============================================================="
+        #pushing images to aws ECR
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          Aws-region: ap-south-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push the image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+          IMAGE_TAG: 1.0
+        run: |  
+          # Build a docker container and push it to ECR 
+          echo "Building And Pushing Discovery Service"
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./Micro_Service_Postgres/contact_service
+          echo "Pushing image to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          echo "######################################"      
+
 
 
         

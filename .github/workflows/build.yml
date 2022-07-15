@@ -74,7 +74,7 @@ jobs:
           sh Jars.sh
           # Build a docker container and push it to ECR 
           echo "Building And Pushing Discovery Service"
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./Micro_Service_Postgres/contact_service
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./contact_service
           echo "Pushing image to ECR..."
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"

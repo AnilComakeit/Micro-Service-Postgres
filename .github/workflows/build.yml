@@ -68,17 +68,24 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
+          ECR_REPOSITORY_user: ${{ secrets.REPO_NAME_USER }}
           IMAGE_TAG: 1.0
         run: |  
           cd Micro_Service_Postgres/
           sh Jars.sh
           # Build a docker container and push it to ECR 
-          echo "Building And Pushing Discovery Service"
+          echo "Building And Pushing Contact Service"
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./contact_service
           echo "Pushing image to ECR..."
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          echo "######################################"      
+          echo "######################################"
+          echo "Building And Pushing user Service"
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_user:$IMAGE_TAG ./user_service
+          echo "Pushing image to ECR..."
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_user:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY_user:$IMAGE_TAG"
+          echo "######################################"   
 
 
 
